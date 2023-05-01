@@ -1,0 +1,184 @@
+1)Create new TO Do Item
+
+Request::
+
+curl --location 'http://localhost:8080/api/todos' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Book Tickets",
+    "description": "test",
+    "status": "TO_DO",
+    "priority": "URGENT",
+    "startDate": "15/05/2023",
+    "dueDate": "20/3/2023"
+}'
+
+
+Response::
+
+{
+    "status": "Success",
+    "message": "To do Item created with Id : 10001"
+}
+
+
+
+..................................................
+
+2)Create new To Item. Invalid input should throw exeception
+
+Request::
+
+curl --location 'http://localhost:8080/api/todos' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+  
+  "name": null,
+    "description": "test",
+    "status": "TO_DO",
+    "priority": "URGENT",
+    "startDate": "15/05/2023",
+    "dueDate": "20/3/2023"
+}'
+
+Response::
+
+{
+    "status": "Invalid Request",
+    "message": "{name=must not be null}"
+}
+
+....................................................
+
+3)Get To Do all Items
+
+curl --location 'http://localhost:8080/api/todos' \
+--header 'accept: application/json'
+
+
+
+
+[
+    {
+        "id": 10000,
+        "name": "Book Tickets",
+        "description": "test",
+        "status": "TO_DO",
+        "startDate": "2023-05-15 00:00:00.0",
+        "dueDate": "2023-03-20 00:00:00.0"
+    },
+    {
+        "id": 10001,
+        "name": "Pay Bill",
+        "description": "test",
+        "status": "TO_DO",
+        "startDate": "2023-05-15 00:00:00.0",
+        "dueDate": "2023-03-20 00:00:00.0"
+    }
+]
+
+..................................................
+
+4)  Fetch To Do Item
+
+For invalid Id it will throw exception
+
+curl --location 'http://localhost:8080/api/todos/111' \
+--header 'accept: application/json'
+
+{
+    "status": "Failure",
+    "message": "No To Do item found for given ID"
+}
+
+..........................................
+
+5) Fetch To Do Item
+
+
+curl --location 'http://localhost:8080/api/todos/10000' \
+--header 'accept: application/json'
+
+
+{
+    "id": 10000,
+    "name": "Pay Bill",
+    "description": "test",
+    "status": "TO_DO",
+    "startDate": "2023-05-15 00:00:00.0",
+    "dueDate": "2023-03-20 00:00:00.0"
+}
+
+............................................
+
+6)  Updated ToDo Item
+
+
+curl --location --request PUT 'http://localhost:8080/api/todos/10000' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Pay Bill Updated",
+    "description": "test",
+    "status": "IN_PROGRESS",
+    "priority": "URGENT",
+    "startDate": "15/05/2023",
+    "dueDate": "20/3/2023"
+}'
+
+
+{
+    "status": "Success",
+    "message": "To do Item updated for Id : 10000"
+}
+
+
+verfiy by using get API
+
+curl --location 'http://localhost:8080/api/todos/10000' \
+--header 'accept: application/json'
+
+{
+    "id": 10000,
+    "name": "Pay Bill Updated",
+    "description": "test",
+    "status": "IN_PROGRESS",
+    "startDate": "2023-05-15 00:00:00.0",
+    "dueDate": "2023-03-20 00:00:00.0"
+}
+
+
+...................................................
+
+7) Delete Item
+
+If Id of TO ITEM not present then throw exception
+
+curl --location --request DELETE 'http://localhost:8080/api/todos/1000' \
+--header 'accept: application/json'
+
+
+curl --location --request DELETE 'http://localhost:8080/api/todos/1000' \
+--header 'accept: application/json'
+
+{
+    "status": "Failure",
+    "message": "No To Do item found for given ID"
+}
+
+
+..................................
+
+8) Delete Item
+
+If record exists then delete the item
+
+curl --location --request DELETE 'http://localhost:8080/api/todos/10000' \
+--header 'accept: application/json'
+
+{
+    "status": "Success",
+    "message": "To do Item deleted with Id : 10000"
+}

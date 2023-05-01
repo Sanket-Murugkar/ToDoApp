@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "30d6a48f-86d6-4e8b-894c-1ef3b155c232",
+		"name": "TODO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"toDos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/todos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n  \"name\": null,\n  \"description\": \"test\",\n  \"status\": \"IN_PROGRESS\",\n  \"createdBy\": \"Sammer\",\n  \"updatedBy\": \"Sammer\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"toDos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/todos/111",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/todos/111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"toDos",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/todos/10000",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"IN_PROGRESS\",\n  \"priority\": \"URGENT\",\n  \"startDate\": \"string\",\n  \"dueDate\": \"string\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todos/10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"toDos",
+						"10000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/todos/1000",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/todos/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"toDos",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
