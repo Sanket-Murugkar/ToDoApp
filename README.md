@@ -1,10 +1,11 @@
 ## To Do Application
 
 This is simple spring boot based TODO backend application which provides below API's
-    1) Get To Do Items
-    2) Create To Do Item
-    3)  Delete To Do Item
-    4)  Updated to do item
+
+    1) Get To Do Items          
+    2) Create To Do Item            
+    3) Delete To Do Item            
+    4) Updated to do item          
 
 ## Development
 
@@ -24,7 +25,7 @@ mvnw clean package
 The application can then be started with the following command -:
 
 ```
-java  -jar ./target/my-app-0.0.1-SNAPSHOT.jar
+java  -jar ./target/ToDoApp-0.0.1-SNAPSHOT.jar
 ```
 
 ## Access 
