@@ -40,7 +40,7 @@ The API Uses cases along wiith sample input output mentioned in the doc - [here]
 
 The postman API collection is also added  [here](https://github.com/Sanket-Murugkar/ToDoApp/blob/79153b3bd7c5d7a1595f6361755344641f1211dc/docs/TODO.postman_collection.json)
 
-##Testing
+## Testing
 
 The Junit test cases added in the test pckage.
 Integration test Also added [here](https://github.com/Sanket-Murugkar/ToDoApp/blob/cd612f483c1a89fce74aab3082590393445cf297/src/test/java/com/demo/todoapp/controller/ToDoControllerITTest.java)
