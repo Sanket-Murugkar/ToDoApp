@@ -12,7 +12,7 @@ This is simple spring boot based TODO backend application which provides below A
 
 The application is built on spring boot framework which also use H2 in-memory database.
 
-Lombok must be supported by your IDE. For this, in IntelliJ install the Lombok plugin and enable annotation processing - [learn more](https://bootify.io/next-steps/spring-boot-with-lombok.html).
+Lombok must be supported by your IDE. 
 
 After starting the application it is accessible under `localhost:8080`.
 
