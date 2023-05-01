@@ -1,6 +1,6 @@
 package com.demo.todoapp.controller;
 
-import com.demo.todoapp.model.APIResponse;
+import com.demo.todoapp.model.ApiResponse;
 import com.demo.todoapp.model.ToDoDTO;
 import com.demo.todoapp.service.ToDoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -50,26 +50,26 @@ public class ToDoController {
 
     @PostMapping
     @Operation(summary = "Create new TO Do Item")
-    public ResponseEntity<APIResponse> createToDo(@RequestBody  @Valid final ToDoDTO toDoDTO) {
+    public ResponseEntity<ApiResponse> createToDo(@RequestBody  @Valid final ToDoDTO toDoDTO) {
         final Integer createdId = toDoService.create(toDoDTO);
-        APIResponse apiResponse = APIResponse.builder().status("Success").message(String.format(TODO_ITEM_CREATION_SUCCESS, createdId)).build();
+        ApiResponse apiResponse = ApiResponse.builder().status("Success").message(String.format(TODO_ITEM_CREATION_SUCCESS, createdId)).build();
         return ResponseEntity.status(HttpStatus.CREATED).body(apiResponse);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update TO Do Item for given ID")
-    public ResponseEntity<APIResponse> updateToDo(@PathVariable final Integer id,
-            @RequestBody @Valid final ToDoDTO toDoDTO) {
+    public ResponseEntity<ApiResponse> updateToDo(@PathVariable final Integer id,
+                                                  @RequestBody @Valid final ToDoDTO toDoDTO) {
         toDoService.update(id, toDoDTO);
-        APIResponse apiResponse = APIResponse.builder().status("Success").message(String.format(TODO_ITEM_UPDATE_SUCCESS, id)).build();
+        ApiResponse apiResponse = ApiResponse.builder().status("Success").message(String.format(TODO_ITEM_UPDATE_SUCCESS, id)).build();
         return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete TO Do Item for given ID")
-    public ResponseEntity<APIResponse> deleteToDo(@PathVariable final Integer id) {
+    public ResponseEntity<ApiResponse> deleteToDo(@PathVariable final Integer id) {
         toDoService.delete(id);
-        APIResponse apiResponse = APIResponse.builder().status("Success").message(String.format(TODO_ITEM_DELETE_SUCCESS, id)).build();
+        ApiResponse apiResponse = ApiResponse.builder().status("Success").message(String.format(TODO_ITEM_DELETE_SUCCESS, id)).build();
         return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
     }
 

@@ -16,7 +16,7 @@ public enum ToDoStatus {
 
     CANCELLED("Cancelled");
 
-    private String name;
+    private final String name;
 
     ToDoStatus(String name) {
         this.name = name;

@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class APIResponse {
+public class ApiResponse {
 
     private String status;
     private String message;

@@ -3,8 +3,6 @@ package com.demo.todoapp.util;
 import com.demo.todoapp.domain.ToDo;
 import com.demo.todoapp.model.ToDoDTO;
 
-import java.sql.Date;
-
 import static com.demo.todoapp.util.DateUtil.convertToDate;
 
 public class ToDoMapper {

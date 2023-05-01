@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.demo.todoapp.ToDoApplication;
-import com.demo.todoapp.model.APIResponse;
+import com.demo.todoapp.model.ApiResponse;
 import com.demo.todoapp.model.ToDoDTO;
 import com.demo.todoapp.util.TestUtil;
 import org.junit.Assert;
@@ -57,8 +57,8 @@ public class ToDoControllerITTest {
         ToDoDTO employee = TestUtil.getMockDto();
         employee.setName("test");
 
-        ResponseEntity<APIResponse> responseEntity = this.restTemplate
-                .postForEntity("http://localhost:" + port + "/api/todos", employee, APIResponse.class);
+        ResponseEntity<ApiResponse> responseEntity = this.restTemplate
+                .postForEntity("http://localhost:" + port + "/api/todos", employee, ApiResponse.class);
 
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertTrue(Objects.requireNonNull(responseEntity.getBody()).getMessage().startsWith("To do Item created with Id"));
@@ -85,8 +85,8 @@ public class ToDoControllerITTest {
         ToDoDTO toDoDTO = getToDoDTO();
         HttpEntity<ToDoDTO> request = new HttpEntity<>(toDoDTO);
 
-        ResponseEntity<APIResponse> responseEntity = restTemplate
-                .exchange("http://localhost:" + port + "/api/todos/1", HttpMethod.DELETE, request, APIResponse.class);
+        ResponseEntity<ApiResponse> responseEntity = restTemplate
+                .exchange("http://localhost:" + port + "/api/todos/1", HttpMethod.DELETE, request, ApiResponse.class);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertTrue(Objects.requireNonNull(responseEntity.getBody()).getMessage().startsWith("To do Item deleted with Id : 1"));

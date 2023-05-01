@@ -1,6 +1,6 @@
 package com.demo.todoapp.config;
 
-import com.demo.todoapp.model.APIResponse;
+import com.demo.todoapp.model.ApiResponse;
 import com.demo.todoapp.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,16 +19,16 @@ import java.util.Map;
 public class RestExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<APIResponse> handleNotFound(final NotFoundException exception) {
-        APIResponse apiResponse = new APIResponse();
+    public ResponseEntity<ApiResponse> handleNotFound(final NotFoundException exception) {
+        ApiResponse apiResponse = new ApiResponse();
         apiResponse.setStatus("Failure");
         apiResponse.setMessage(exception.getMessage());
         return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(Throwable.class)
-    public ResponseEntity<APIResponse> handleThrowable(final Throwable exception) {
-        APIResponse apiResponse = new APIResponse();
+    public ResponseEntity<ApiResponse> handleThrowable(final Throwable exception) {
+        ApiResponse apiResponse = new ApiResponse();
         apiResponse.setStatus("Failure");
         apiResponse.setMessage(exception.getMessage());
         return new ResponseEntity<>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -37,7 +37,7 @@ public class RestExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public APIResponse handleValidationExceptions(
+    public ApiResponse handleValidationExceptions(
             MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
@@ -45,7 +45,7 @@ public class RestExceptionHandler {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
-        APIResponse apiResponse = new APIResponse();
+        ApiResponse apiResponse = new ApiResponse();
         apiResponse.setStatus("Failure");
         apiResponse.setMessage(errors.toString());
         return apiResponse;
